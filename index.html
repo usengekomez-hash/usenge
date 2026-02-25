@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GILBERT Komezusenge - Computer Systems Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, #0a192f, #1a2f4f);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-first {
+            color: #64ffda;
+        }
+
+        .logo-last {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #64ffda;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #64ffda;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 76px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(145deg, #0a192f, #112240);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(100,255,218,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #64ffda;
+            display: block;
+            font-size: 42px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #8892b0;
+            border-left: 4px solid #64ffda;
+            padding-left: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 600px;
+            color: #ccd6f6;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .profile-large {
+            width: 380px;
+            height: 380px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 5px solid #64ffda;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+            animation: morphing 10s ease-in-out infinite;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #64ffda;
+            color: #0a192f;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 2px solid #64ffda;
+            margin-right: 15px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #64ffda;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(100,255,218,0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #64ffda;
+            color: #64ffda;
+        }
+
+        .btn-outline:hover {
+            background-color: #64ffda;
+            color: #0a192f;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f5f9ff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 70px;
+            color: #0a192f;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #64ffda, #0a192f);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+            border: 5px solid white;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #64ffda;
+            color: #0a192f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .social-icon:hover {
+            background-color: #0a192f;
+            color: #64ffda;
+            transform: translateY(-5px);
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #0a192f;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #2d4059;
+            line-height: 1.8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background: linear-gradient(145deg, #ffffff, #f0f5ff);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #64ffda;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-item strong {
+            color: #0a192f;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item span {
+            color: #2d4059;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: linear-gradient(145deg, #0a192f, #112240);
+            color: white;
+        }
+
+        .skills-section .section-title {
+            color: white;
+        }
+
+        .skills-section .section-title:after {
+            background: linear-gradient(90deg, #64ffda, white);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            border: 1px solid rgba(100,255,218,0.2);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: #64ffda;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 30px;
+            color: #64ffda;
+            font-size: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .skill-category h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #64ffda;
+            border-radius: 2px;
+        }
+
+        .skill-items {
+            list-style: none;
+        }
+
+        .skill-items li {
+            margin-bottom: 25px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ccd6f6;
+            font-size: 16px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #64ffda, #4ecdc4);
+            border-radius: 10px;
+            position: relative;
+            animation: skillFill 1.5s ease-out;
+        }
+
+        .skill-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, #0a192f, #1a2f4f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64ffda;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(100,255,218,0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .project-card:hover .project-image:before {
+            top: -20%;
+            left: -20%;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 12px;
+            color: #0a192f;
+            font-size: 22px;
+        }
+
+        .project-content p {
+            color: #2d4059;
+            margin-bottom: 18px;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            color: #0a192f;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(145deg, #0a192f, #112240);
+            color: white;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-title:after {
+            background: linear-gradient(90deg, #64ffda, white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #64ffda;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: #ccd6f6;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(100,255,218,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 24px;
+            color: #64ffda;
+            transition: all 0.3s;
+        }
+
+        .contact-details li:hover .contact-icon {
+            background: #64ffda;
+            color: #0a192f;
+            transform: scale(1.1);
+        }
+
+        .contact-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #64ffda;
+        }
+
+        .contact-text span {
+            font-size: 16px;
+            opacity: 0.9;
+            color: #ccd6f6;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form h4 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #64ffda;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #64ffda;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #64ffda;
+            color: #0a192f;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #64ffda;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background: transparent;
+            color: #64ffda;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a192f;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(100,255,218,0.2);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            margin: 25px 0;
+        }
+
+        .footer-social a {
+            color: #64ffda;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .footer-social a:hover {
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .footer-copyright {
+            opacity: 0.7;
+            font-size: 14px;
+            color: #8892b0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h2 {
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 4px solid #64ffda;
+                padding-bottom: 15px;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-content,
+            .skills-container,
+            .projects-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-large {
+                width: 320px;
+                height: 320px;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 0 12px;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-text h1 span {
+                font-size: 32px;
+            }
+
+            .profile-large {
+                width: 280px;
+                height: 280px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-first">GILBERT</span> <span class="logo-last">Komezusenge</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with YOUR FIRST IMAGE -->
+        <section id="home" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span>Hi, I'm</span>
+                        GILBERT Komezusenge
+                    </h1>
+                    <h2>Computer Systems Architect & Embedded Systems Engineer</h2>
+                    <p>Designing and building robust computer architectures, embedded systems, and low-level solutions with C/C++. Based in Kigali, Rwanda.</p>
+                    <div>
+                        <a href="#contact" class="btn">Hire Me</a>
+                        <a href="#projects" class="btn btn-outline">View Projects</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- PASTE YOUR FIRST IMAGE URL HERE (Feb 25, 2026, 06_38_10 PM.png) -->
+                    <img src="C:\Users\gilbert\Documents\images\ChatGPT Image Feb 25, 2026, 06_38_10 PM.png" 
+                         alt="GILBERT Komezusenge" 
+                         class="profile-large"
+                         >
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section with YOUR SECOND IMAGE -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <!-- PASTE YOUR SECOND IMAGE URL HERE (Feb 25, 2026, 06_38_03 PM.png) -->
+                        <img src="C:\Users\gilbert\Documents\images\ChatGPT Image Feb 25, 2026, 06_38_03 PM.png" 
+                             alt="GILBERT Komezusenge - Professional" 
+                             class="profile-image"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/350x350?text=GILBERT'">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">in</a>
+                            <a href="#" class="social-icon">gh</a>
+                            <a href="#" class="social-icon">tw</a>
+                            <a href="#" class="social-icon">ig</a>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Computer Systems Architect & Embedded Systems Expert</h3>
+                        <p>I specialize in computer system architecture, embedded systems design, and low-level programming. With over 6 years of experience in hardware-software co-design, I've developed everything from microcontroller firmware to complex system architectures.</p>
+                        <p>Based in Kigali, Rwanda, I work on projects that bridge the gap between hardware and software. My expertise in C, C++, and embedded systems allows me to create efficient, reliable solutions for industrial automation, IoT devices, and custom computing platforms.</p>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Name</strong>
+                                <span>GILBERT Komezusenge</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Location</strong>
+                                <span>Kigali, Rwanda</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Specialization</strong>
+                                <span>Computer Architecture</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Experience</strong>
+                                <span>6+ Years</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Email</strong>
+                                <span>usengekomez@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Availability</strong>
+                                <span>Projects & Consulting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>🔧 Computer Architecture</h3>
+                        <ul class="skill-items">
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">⚙️</span> System Architecture Design</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🧮</span> CPU Architecture</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">💾</span> Memory Systems</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 88%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🔌</span> Bus Protocols</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 92%;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>📟 Embedded Systems</h3>
+                        <ul class="skill-items">
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🔄</span> RTOS</span>
+                                    <span>94%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 94%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🎛️</span> Microcontrollers (ARM, AVR)</span>
+                                    <span>96%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 96%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">📡</span> IoT & Sensor Integration</span>
+                                    <span>91%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 91%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🔋</span> Power Management</span>
+                                    <span>87%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 87%;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>💻 Programming Languages</h3>
+                        <ul class="skill-items">
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">⚡</span> C (Systems Programming)</span>
+                                    <span>98%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 98%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">⚙️</span> C++</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">📝</span> Assembly (ARM, x86)</span>
+                                    <span>89%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 89%;"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="skill-name">
+                                    <span><span class="skill-icon">🔧</span> Embedded Linux</span>
+                                    <span>86%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 86%;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">🔧</div>
+                        <div class="project-content">
+                            <h3>RISC-V Processor Core</h3>
+                            <p>Designed and implemented a 32-bit RISC-V processor core in C with complete instruction set simulation and pipeline architecture.</p>
+                            <div class="project-tags">
+                                <span class="tag">C</span>
+                                <span class="tag">RISC-V</span>
+                                <span class="tag">Computer Architecture</span>
+                                <span class="tag">Verilog</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">📡</div>
+                        <div class="project-content">
+                            <h3>Industrial IoT Gateway</h3>
+                            <p>Embedded system for industrial monitoring with real-time data acquisition, processing, and cloud connectivity using ARM Cortex-M4.</p>
+                            <div class="project-tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">ARM</span>
+                                <span class="tag">RTOS</span>
+                                <span class="tag">MQTT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">🚗</div>
+                        <div class="project-content">
+                            <h3>Automotive Control Unit</h3>
+                            <p>Developed firmware for automotive ECU with CAN bus communication, sensor fusion, and real-time control algorithms.</p>
+                            <div class="project-tags">
+                                <span class="tag">C</span>
+                                <span class="tag">Embedded</span>
+                                <span class="tag">CAN Bus</span>
+                                <span class="tag">AUTOSAR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Real Email -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Build Something</h3>
+                        <p>Looking for a computer systems architect or embedded systems expert? I'm available for consulting, project development, and technical architecture design.</p>
+                        <ul class="contact-details">
+                            <li>
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-text">
+                                    <strong>Location</strong>
+                                    <span>Kigali, Rwanda</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-text">
+                                    <strong>Email</strong>
+                                    <span>usengekomez@gmail.com</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-text">
+                                    <strong>Phone</strong>
+                                    <span>+250 785 880 822</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">💼</div>
+                                <div class="contact-text">
+                                    <strong>Availability</strong>
+                                    <span>Projects & Consulting</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-form">
+                        <h4>Send a Message</h4>
+                        <form action="mailto:usengekomez@gmail.com" method="post" enctype="text/plain">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3 class="logo">
+                <span class="logo-first">GILBERT</span> <span class="logo-last">Komezusenge</span>
+            </h3>
+            <p>Computer Systems Architect | Embedded Systems Engineer</p>
+            <div class="footer-social">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Twitter</a>
+                <a href="#">Medium</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 GILBERT Komezusenge | <a href="mailto:sengekomez@gmail.com" style="color: #64ffda; text-decoration: none;">sengekomez@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
